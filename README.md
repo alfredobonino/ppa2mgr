@@ -1,7 +1,7 @@
 ppa2mgr
 =======
 
-this is a tool for ppa. this tool search, list, remove and search ppa on ubuntu and derivates.
+this is a tool for ppa. this tool search, list, remove and install ppa on ubuntu and derivates.
 
 for search a ppa:
 
