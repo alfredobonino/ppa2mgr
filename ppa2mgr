@@ -1,0 +1,35 @@
+#!/usr/bin/env python3
+import os
+from argparse import ArgumentParser
+
+parser = ArgumentParser()
+
+parser.add_argument("-a", "--add", dest="addppa",
+                    help="add a ppa in your system", metavar="ADDPPA")
+parser.add_argument("-r", "--remove", dest="removeppa",
+                    help="remove a ppa in your system", metavar="REMOVEPPA")
+parser.add_argument("-l", "--list", dest="listppa",
+                    help="list all ppa in your system", metavar="LISTPPA")
+parser.add_argument("-c", "--credits", dest="credits",
+                    help="print the credits", metavar="CREDITS")
+parser.add_argument("-s", "--search", dest="searchppa",
+                    help="search the ppa, to exit ctrl+z", metavar="SEARCH")
+
+
+args = parser.parse_args()
+
+if args.addppa:
+  os.system("sudo add-apt-repository ppa:" + args.addppa)
+  os.system("sudo apt-get update")
+if args.removeppa:
+  os.system("sudo add-apt-repository -r ppa:" + args.removeppa)
+  os.system("sudo apt-get update")
+if args.listppa:
+  os.system("cd /etc/apt/sources.list.d/ && dir *." + args.listppa)
+if args.credits:
+  print(args.credits)
+  print("Created by Alfredo Bonino")
+  print("ppa2mgr - Under GPL 3 LICENSE")
+if args.searchppa:
+  os.system("w3m launchpad.net/+search?field.text=" + args.searchppa)
+  
